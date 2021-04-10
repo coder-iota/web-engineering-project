@@ -9,5 +9,58 @@
   <servlet-mapping>
     <servlet-name>invoice</servlet-name>
     <url-pattern>/invoice</url-pattern>
+	<servlet>
+    <description></description>
+    <display-name>index</display-name>
+    <servlet-name>index</servlet-name>
+    <jsp-file>/index.jsp</jsp-file>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>index</servlet-name>
+    <url-pattern>/</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+    <description></description>
+    <display-name>newInvoice</display-name>
+    <servlet-name>newInvoice</servlet-name>
+    <jsp-file>/newInvoice.jsp</jsp-file>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>newInvoice</servlet-name>
+    <url-pattern>/new</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+    <description></description>
+    <display-name>Inventory</display-name>
+    <servlet-name>Inventory</servlet-name>
+    <jsp-file>/inventory.jsp</jsp-file>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Inventory</servlet-name>
+    <url-pattern>/inventory</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+    <description></description>
+    <display-name>editProfile</display-name>
+    <servlet-name>editProfile</servlet-name>
+    <jsp-file>/editProfile.jsp</jsp-file>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>editProfile</servlet-name>
+    <url-pattern>/profile</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+    <description></description>
+    <display-name>previousInvoices</display-name>
+    <servlet-name>previousInvoices</servlet-name>
+    <jsp-file>/previousInvoices.jsp</jsp-file>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>previousInvoices</servlet-name>
+    <url-pattern>/previousInvoices</url-pattern>
   </servlet-mapping>
 </web-app>
