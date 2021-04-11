@@ -12,30 +12,175 @@
 	<link href="https://fonts.googleapis.com/css2?family=Arima+Madurai:wght@300&display=swap" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
     <link rel="stylesheet" href="home.css">
+<style>
 
+.heading {
+  position: absolute;
+  top: -5px;
+  left: 30px;
+  font-size: 48px;
+  font-family: "Times New Roman", Times, serif;
+  color: white;
+}
+
+.topnav {
+  overflow: hidden;
+  background-color: #333;
+}
+
+.topnav a {
+  float: right;
+  color: #f2f2f2;
+  text-align: right;
+  padding: 70px 30px;
+  text-decoration: none;
+  font-size: 17px;
+  
+}
+
+.topnav a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+
+.container {
+  position: fixed;
+  margin: 0px;
+  width: 98.4%;
+}
+
+.container .btn1 {
+  position: absolute;
+  top: 412px;
+  left: 250px;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  background-color: #555;
+  color: white;
+  font-size: 16px;
+  padding: 12px 24px;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  text-align: center;
+}
+.container .btn1:hover {
+  background-color: black;
+}
+
+.container .btn2 {
+  position: absolute;
+  top: 300px;
+  left: 300px;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  background-color: #555;
+  color: white;
+  font-size: 16px;
+  padding: 70px 70px;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  text-align: center;
+}
+.container .btn2:hover {
+  background-color: black;
+}
+
+.container .btn3 {
+  position: absolute;
+  top: 300px;
+  left: 700px;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  background-color: #555;
+  color: white;
+  font-size: 16px;
+  padding: 70px 70px;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  text-align: center;
+  
+}
+.container .btn3:hover {
+  background-color: black;
+}
+
+.container .btn4 {
+  position: absolute;
+  top: 300px;
+  left: 1100px;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  background-color: #555;
+  color: white;
+  font-size: 16px;
+  padding: 70px 60px;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  text-align: center;
+}
+.container .btn4:hover {
+  background-color: black;
+}
+.h1 {
+  position: absolute;
+  top: 70px;
+  left: 50px;
+  font-size: 16px;
+  font-family: "Times New Roman", Times, serif;
+  color:white;
+}
+.h2 {
+  position: absolute;
+  top: 90px;
+  left: 50px;
+  font-size: 16px;
+  font-family: "Times New Roman", Times, serif;
+  color:white;
+}
+.h3 {
+  position: absolute;
+  top: 110px;
+  left: 50px;
+  font-size: 16px;
+  font-family: "Times New Roman", Times, serif;
+  color:white;
+}
+
+</style>
 </head>
+
 <body>
-     <div class="profile">
-    <span><u><h1> Minimal Invoice Creator</h1></u></span>
-   
-    <a href="/web-engineering-project/new">
-    	 <button type="button" class="btn btn-primary" style="margin:3px;">New Invoice</button>
-    </a>
-    <a href="/web-engineering-project/profile">
-    	<button type="button" class="btn btn-primary" style="margin: 3px">Edit Profile</button>
-    </a>
+	
+    <div class="heading">Tripathi Carpets</div>
+    <div class="h1">P - 81, Treasure Town , Mumbai , India </div>
+    <div class="h2"> GSTIN - 245553666717123 </div>
+    <div class="h3"> FAX - 07553573370 </div>
+    <div class = "topnav">
+     	<a href="/web-engineering-project/profile">Edit Profile</a>
     
     </div>
-
-    <div class="d-grid gap-2 col-8 mx-auto">
-	    <a href="/web-engineering-project/inventory">
-	    	<button class="btn btn-primary tabs" type="button">INVENTORY</button>
+    
+     <div class="container">
+	    <a href="/web-engineering-project/new">
+	    	<button type="button" class="btn2" style="text-decoration: none; color:#ddd">NEW INVOICE</button>
 	    </a>
+	</div>
+    <div class="container">
+	    <a href="/web-engineering-project/inventory">
+	    	<button type="button" class="btn3" style="text-decoration: none; color:#ddd">INVENTORY</button>
+	    </a>
+	</div>
+	<div class="container">
 	    <a href="/web-engineering-project/previousInvoices">
-	    	<button class="btn btn-primary tabs" type="button">PREVIOUS INVOICES</button>
+	    	<button type="button" class="btn4" style="text-decoration: none; color:#ddd">PREVIOUS INVOICES</button>
 	    </a> 
     </div>
-  
+    
     
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous"></script>
 </body>
