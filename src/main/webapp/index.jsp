@@ -16,28 +16,22 @@
 </head>
 <body>
      <div class="profile">
-    <span><u><h1> Royal Trading Firm </h1></u></span>
+    <span><u><h1> Minimal Invoice Creator</h1></u></span>
    
-    <a href="newInvoice.jsp">
+    <a href="/web-engineering-project/new">
     	 <button type="button" class="btn btn-primary" style="margin:3px;">New Invoice</button>
     </a>
-    <a href="editProfile.jsp">
+    <a href="/web-engineering-project/profile">
     	<button type="button" class="btn btn-primary" style="margin: 3px">Edit Profile</button>
     </a>
     
     </div>
 
-    <div class="latestInventories col-9 mx-auto">
-        <div class="inventory_card">  card 1 </div>
-        <div class="inventory_card">  card 2 </div>
-        <div class="inventory_card">  card 3 </div>
-    </div>
-
     <div class="d-grid gap-2 col-8 mx-auto">
-	    <a href="inventory.jsp">
+	    <a href="/web-engineering-project/inventory">
 	    	<button class="btn btn-primary tabs" type="button">INVENTORY</button>
 	    </a>
-	    <a href="previousInvoices.jsp">
+	    <a href="/web-engineering-project/previousInvoices">
 	    	<button class="btn btn-primary tabs" type="button">PREVIOUS INVOICES</button>
 	    </a> 
     </div>

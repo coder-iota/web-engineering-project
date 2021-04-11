@@ -101,17 +101,21 @@
 
 	<body>
 		<%@ page import="java.sql.*" %>
+		<%@ page import="java.util.HashMap" %>
+		<%@ page import="java.util.Map" %>
+		<%@ page import="java.util.Iterator" %>
+		<%@ page import="java.util.Set" %>
 		
 		<%
-		//DELETE!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!11
-		session.setAttribute("invoiceID", 1);
+		if(request.getParameter("invoiceID") != null)
+			session.setAttribute("invoiceID",request.getParameter("invoiceID").substring(15));
 		
 		String dbDriver = "com.mysql.jdbc.Driver";
         String dbURL = "jdbc:mysql:// localhost:3306/";
         // Database name to access
         String dbName = "we_project";
         String dbUsername = "root";
-        String dbPassword = "CercaTrova17.";
+        String dbPassword = "root12345";
   
         Class.forName(dbDriver);
         Connection con = DriverManager.getConnection(dbURL + dbName,dbUsername,dbPassword);
@@ -126,8 +130,9 @@
         stmt.close();
         
         Statement st = con.createStatement();
-        sql = "select * from invoice where invoice_id = " + request.getAttribute("invoiceID");
-       	rs = st.executeQuery(sql);
+        sql = "select * from invoice where invoice_id = " + session.getAttribute("invoiceID");
+        System.out.println(sql);       	
+        rs = st.executeQuery(sql);
 		rs.next();      
 		%>
 		
@@ -169,47 +174,66 @@
 						</table>
 					</td>
 				</tr>
-
-				<tr class="heading">
-					<td>Payment Method</td>
-
-					<td>Check #</td>
-				</tr>
-
-				<tr class="details">
-					<td>Check</td>
-
-					<td>1000</td>
-				</tr>
-
+				
+				<%
+					String prodIds = rs.getString("prod_ids");
+					String prodQty = rs.getString("prod_qty");
+					double finalPrice = 0.0;
+					HashMap<String, Integer> prodsMap = new HashMap<String, Integer>();
+					String temp1 = "", temp2="";
+					int inx=0;
+					for(int i=0; i<prodIds.length(); i++){
+						if(prodIds.charAt(i)!=',')
+							temp1 += prodIds.charAt(i);
+						else{
+							temp2 = "";
+							while(inx<prodQty.length()){
+								if(prodQty.charAt(inx) == ','){
+									inx++;
+									break;
+								}
+								else 
+									temp2 += prodQty.charAt(inx);
+								inx++;
+							}
+							prodsMap.put(temp1, Integer.parseInt(temp2));
+							temp1 = "";
+						}
+					}
+					
+				%>
+				
 				<tr class="heading">
 					<td>Item</td>
-
+					<td>Quantity</td>
 					<td>Price</td>
 				</tr>
 
-				<tr class="item">
-					<td>Website design</td>
-
-					<td>$300.00</td>
-				</tr>
-
-				<tr class="item">
-					<td>Hosting (3 months)</td>
-
-					<td>$75.00</td>
-				</tr>
-
-				<tr class="item last">
-					<td>Domain name (1 year)</td>
-
-					<td>$10.00</td>
-				</tr>
+				<%
+					Iterator itr = prodsMap.entrySet().iterator();
+					while(itr.hasNext()){
+						Map.Entry mentry = (Map.Entry) itr.next();
+						sql = "select prod_name, prod_sell_price from inventory where prodid = \"" + mentry.getKey() + "\"";
+						ResultSet prodRS = st.executeQuery(sql);
+						prodRS.next();
+						
+						double sellPrice = prodRS.getDouble("prod_sell_price");
+						int qty = (int)mentry.getValue();
+						finalPrice += sellPrice*qty;
+						out.println("<tr class=\"item\">");
+						out.println("<td>" + prodRS.getString("prod_name") + "</td>");
+						out.println("<td>" + qty + "</td>");
+						out.println("<td>" + sellPrice + "</td>");
+						out.println("</tr>");
+					}
+					
+					
+				%>
 
 				<tr class="total">
 					<td></td>
 
-					<td>Total: $385.00</td>
+					<td>Total: $<%= finalPrice %></td>
 				</tr>
 			</table>
 		</div>
