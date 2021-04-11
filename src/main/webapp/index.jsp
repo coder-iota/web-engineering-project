@@ -155,11 +155,29 @@
 </head>
 
 <body>
+
+	<%@ page import="java.sql.*" %>
+
+	<%
+		String dbDriver = "com.mysql.jdbc.Driver";
+		String dbURL = "jdbc:mysql:// localhost:3306/";
+		String dbName = "we_project";
+		String dbUsername = "root";
+		String dbPassword = "root12345";
+		
+		Class.forName(dbDriver);
+		Connection con = DriverManager.getConnection(dbURL + dbName,dbUsername,dbPassword);
+		Statement stmt = con.createStatement();
+		
+		String sql = "select * from profile";
+		ResultSet rs = stmt.executeQuery(sql);
+		rs.next();
+	%>
 	
-    <div class="heading">Tripathi Traders</div>
-    <div class="h1">P - 81, Treasure Town, Mirzapur, U.P. </div>
-    <div class="h2"> GSTIN - 245553666717123 </div>
-    <div class="h3"> Contact - 07553573370 </div>
+    <div class="heading"><%= rs.getString("firm_name") %></div>
+    <div class="h1"><%= rs.getString("firm_address") %> </div>
+    <div class="h2"> GSTIN - <%= rs.getString("firm_gst_no") %> </div>
+    <div class="h3"> Contact - <%= rs.getString("firm_contact") %> </div>
     <div class = "topnav">
      	<a href="/web-engineering-project/profile">Edit Profile</a>
     
