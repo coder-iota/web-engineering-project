@@ -38,7 +38,7 @@
 }
 
 input[type=text], select {
-  width: 100%;
+  width: 50%;
   padding: 0px 12px;
   margin: 8px 0;
   display: inline-block;
@@ -48,7 +48,7 @@ input[type=text], select {
 }
 
 input[type=submit] {
-  width: 100%;
+  width: 50%;
   background-color: #4CAF50;
   color: white;
   padding: 0px 12px;
@@ -110,17 +110,7 @@ input[type=submit]:hover {
 		  }
 	  
 	  String sql = "select * from inventory";
-	  ResultSet rs = stmt.executeQuery(sql);
-	  
-	  while(rs.next()){
-		  out.print("<tr>");
-		  out.print("<td>" + rs.getString("prodid") + "</td>");
-		  out.print("<td>" + rs.getString("prod_name") + "</td>");
-		  out.print("<td>" + rs.getString("prod_qty") + "</td>");
-		  out.print("<td>" + rs.getString("prod_sell_price") + "</td>");
-		  out.print("</tr>");
-	  }
-	  
+	  ResultSet rs = stmt.executeQuery(sql);	  
   %>
 
 
@@ -147,7 +137,7 @@ input[type=submit]:hover {
            Product Name 
         </th>
         <th>
-            Qunatity
+            Quantity
         </th>
         <th>
             Selling Price
@@ -156,81 +146,17 @@ input[type=submit]:hover {
 
     </thead>
     <tbody>
-        <tr>
-            <td>
-               1
-            </td>
-            <td>
-                linen carpet 
-            </td>
-            <td>
-               10000 
-            </td>
-            <td>
-               2000 
-            </td>
-        </tr>
-        <tr>
-            <td>
-                1
-             </td>
-             <td>
-                 linen carpet 
-             </td>
-             <td>
-                10000 
-             </td>
-             <td>
-                2000 
-             </td>
+    <%
+	  while(rs.next()){
+		  out.print("<tr>");
+		  out.print("<td>" + rs.getString("prodid") + "</td>");
+		  out.print("<td>" + rs.getString("prod_name") + "</td>");
+		  out.print("<td>" + rs.getString("prod_qty") + "</td>");
+		  out.print("<td>" + rs.getString("prod_sell_price") + "</td>");
+		  out.print("</tr>");
+	  }
 
-        </tr>
-        <tr>
-            <td>
-                1
-             </td>
-             <td>
-                 linen carpet 
-             </td>
-             <td>
-                10000 
-             </td>
-             <td>
-                2000 
-             </td>
-
-        </tr>
-        <tr>
-            <td>
-                1
-             </td>
-             <td>
-                 linen carpet 
-             </td>
-             <td>
-                10000 
-             </td>
-             <td>
-                2000 
-             </td>
-
-        </tr>
-        <tr>
-            <td>
-                1
-             </td>
-             <td>
-                 linen carpet 
-             </td>
-             <td>
-                10000 
-             </td>
-             <td>
-                2000 
-             </td>
-
-        </tr>
-
+    %>
     </tbody>
       </table>
 </div>

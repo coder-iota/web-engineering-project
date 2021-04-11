@@ -156,10 +156,10 @@
 
 <body>
 	
-    <div class="heading">Tripathi Carpets</div>
-    <div class="h1">P - 81, Treasure Town , Mumbai , India </div>
+    <div class="heading">Tripathi Traders</div>
+    <div class="h1">P - 81, Treasure Town, Mirzapur, U.P. </div>
     <div class="h2"> GSTIN - 245553666717123 </div>
-    <div class="h3"> FAX - 07553573370 </div>
+    <div class="h3"> Contact - 07553573370 </div>
     <div class = "topnav">
      	<a href="/web-engineering-project/profile">Edit Profile</a>
     
